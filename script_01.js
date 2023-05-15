@@ -148,9 +148,9 @@ function getSentenceArr(arr) {
 output(getSentenceArr2(["Ich","bin","die","coole","Maxine","Mützerich"]));
 
 // 
-// function getSentenceArr2(arr) {
-//     const GAP = " ";
-//     const PUNCT = ".";
+function getSentenceArr2(arr) {
+    const GAP = " ";
+    const PUNCT = ".";
 //     // let str =   arr[0] + GAP +
                
 
@@ -162,26 +162,30 @@ output(getSentenceArr2(["Ich","bin","die","coole","Maxine","Mützerich"]));
 //     return str.trim() + PUNCT; //wegschneiden durch trim
 // }
 
-function getSentenceArr2(arr) {
-    const GAP = " ";
-    const PUNCT = ".";
-    // let str =   arr[0] + GAP +
+// function getSentenceArr2(arr) {
+//     const GAP = " ";
+//     const PUNCT = ".";
+//     // let str =   arr[0] + GAP +
                
 
-    for (let i = 0; i < arr.length; i++) {  // 0--> arr.length-1
+//     for (let i = 0; i < arr.length; i++) {  // 0--> arr.length-1
 
-        if (i == arr.length-1){
-            str += arr[i]+ PUNCT;  
+//         if (i == arr.length-1){
+//             str += arr[i]+ PUNCT;  
 
-        } else{
-            str += arr[i]+ GAP;  //Transponierung und Mapping
-        }
+//         } else{
+//             str += arr[i]+ GAP;  //Transponierung und Mapping
+//         }
         
         
-    }
+//     }
                 
-    return str;
-}
+//     return str;
+// }
+
+
+// 4. Itearion join ()
+str = arr.join(GAP) + PUNCT;
 
 // Modul: Ausgabe in Konsole : Test
 // output("hi"); 
