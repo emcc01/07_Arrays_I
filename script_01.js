@@ -9,20 +9,84 @@
 
 /*** 02. Theorie: Array */
 
-let arr;
+// let arr;
 // arr = new Array(); // Konstruktor
-arr =[]; // Literal
-arr = [2,7,11,4];   //wird angezeigt als Array mit Anzahl der enthaltenen Elemente
+// arr =[]; // Literal
+// arr = [2,7,11,4];   //wird angezeigt als Array mit Anzahl der enthaltenen Elemente
 // Index: Nummerierung der Elemente, startet mit 0
 
 
+// output(arr);
+// output(arr.length);  //length gibt Anzahl der Elemente an
+// output(arr[0]); // Index 0 = erste Position im array
+// output(arr[3]); // Index 3 = 4.Position im Array
+// output(arr[arr.length - 1]); // immer letzte Position
 
 
-output(arr);
-output(arr.length);  //length gibt Anzahl der Elemente an
-output(arr[0]); // Index 0 = erste Position im array
-output(arr[3]); // Index 3 = 4.Position im Array
-output(arr[arr.length - 1]); // immer letzte Position
+
+
+/* 02a. Theorie: Schleifen (for-schleife) */
+
+ 
+/* For -Schleifen als allg. Wiederholungs-Struktur */
+
+// for (let i = 0; i < 10; i++) {   // Inkrement, heisst zähl um 1 hoch
+//     // Dekrement wäre i--, zählt immer um eins runter
+//     output(i);
+// }
+
+// 
+
+
+/* 02b. For-Schleife für Array-Index (Iteration)*/
+let arr = ["Ich","bin","die","coole","Maxine","Mützerich"];
+
+// for (let i = 0; i < arr.length; i++) { 
+//     output(i); //innerer Index  
+//     output(arr[i]); // Array-Index --> Mapping
+// }
+
+
+/*********   Überlegungen - Transponierung **********/
+
+
+/* 
+1. Einer Variablen kann Ihr eigener Wert zugewiesen werden.
+Solange die Variable existiert, bleibt dieser erhalten.
+hier: Aufsummierung
+*/
+
+/* Zu "Fuß" - DRY !!! */
+// let a = 0; // Anfangswert
+// output("inhalt von a: " + a);
+// a = a + 1;  // a = 0 + 1
+// output("inhalt von a: " + a);
+// a = a + 1;  // a = 1 + 1
+// output("inhalt von a: " + a);
+// a = a + 1;  // a = 2 + 1
+// output("inhalt von a: " + a);
+
+
+// /* Besser: mit FOR-Schleife */
+// let a = 0; // Anfangswert
+// for (let i = 0; i < 10; i++) {
+//     a = a + 1;  // Kurz: a += 1
+//     output("inhalt von a: " + a);
+// }
+
+
+/*
+1a. Einer Variablen kann Ihr eigener Wert zugewiesen werden
+Solange die Variable existiert, bleibt dieser erhalten
+hier: Verkettung eines Strings // Transponierung
+*/
+
+let str = ""; // Anfangswert
+// for (let i = 0; i < 4; i++) {
+//     str += "Test";
+//     output("inhalt von str: " + str);
+// }
+
 
 /**
  *   PRAXIS
@@ -58,7 +122,7 @@ function getSentence(word1,word2,word3,word4,word5,word6) {
 // --> Transformation semantisches Problem --> numerisches Problem
 
 
-output(getSentenceArr(["Ich","bin","die","coole","Maxine","Mützerich"]));
+// output(getSentenceArr(["Ich","bin","die","coole","Maxine","Mützerich"]));
 
 function getSentenceArr(arr) {
     const GAP = " ";
@@ -75,7 +139,49 @@ function getSentenceArr(arr) {
 }
 
 
+/*** 01b. Funktionalität mit Array 2  */
+// Transponierung:  untereinander ---> nebeneinander
+// Helge Schneider: Anananandereihung ...
 
+
+
+output(getSentenceArr2(["Ich","bin","die","coole","Maxine","Mützerich"]));
+
+// 
+// function getSentenceArr2(arr) {
+//     const GAP = " ";
+//     const PUNCT = ".";
+//     // let str =   arr[0] + GAP +
+               
+
+//     for (let i = 0; i < arr.length; i++) {  // 0--> arr.length-1
+//         str += arr[i]+ GAP;  //Transponierung und Mapping
+//        // das letzte Leerzeichen wird zuviel drangehangen
+//     }
+                
+//     return str.trim() + PUNCT; //wegschneiden durch trim
+// }
+
+function getSentenceArr2(arr) {
+    const GAP = " ";
+    const PUNCT = ".";
+    // let str =   arr[0] + GAP +
+               
+
+    for (let i = 0; i < arr.length; i++) {  // 0--> arr.length-1
+
+        if (i == arr.length-1){
+            str += arr[i]+ PUNCT;  
+
+        } else{
+            str += arr[i]+ GAP;  //Transponierung und Mapping
+        }
+        
+        
+    }
+                
+    return str;
+}
 
 // Modul: Ausgabe in Konsole : Test
 // output("hi"); 
